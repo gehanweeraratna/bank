@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "7630abb0-3cbf-458c-ab78-4b1ed8d74f6a",
+		"name": "Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5516712"
+	},
+	"item": [
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"person\":{\r\n        \"nationalId\":\"100001\",\r\n        \"firstName\":\"John\",\r\n        \"lastName\":\"Smith\",\r\n        \"dateOfBirth\":\"1990-05-10\",\r\n        \"sex\": \"M\",\r\n        \"email\": \"johnsmith@test.com\",\r\n        \"mobile\": \"+94718805718\",\r\n        \"address\": \"200\",\r\n        \"street\": \"1st Lane\",\r\n        \"city\": \"Little India\",\r\n        \"country\": \"Singapore\"\r\n    },\r\n    \"account\":{\r\n        \"accountNumber\": 510510001,\r\n        \"branchCode\": \"1005\",\r\n        \"branchName\": \"SuperGrade\",\r\n        \"currency\": \"SGD\",\r\n        \"balance\": 78500.00\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/createAccount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"accountNumber\":\"510510001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/deposit/12500.75",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deposit",
+						"12500.75"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"accountNumber\":\"510510001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/withdraw/500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"withdraw",
+						"500"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
