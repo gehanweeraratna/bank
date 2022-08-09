@@ -1,0 +1,34 @@
+CREATE TABLE `account` (
+  `accountNumber` int NOT NULL,
+  `branchCode` varchar(45) DEFAULT NULL,
+  `branchName` varchar(45) DEFAULT NULL,
+  `currency` varchar(45) DEFAULT NULL,
+  `balance` decimal(10,0) DEFAULT NULL,
+  PRIMARY KEY (`accountNumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `person` (
+  `nationalId` varchar(45) NOT NULL,
+  `firstName` varchar(45) DEFAULT NULL,
+  `lastName` varchar(45) DEFAULT NULL,
+  `dateOfBirth` date DEFAULT NULL,
+  `sex` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `mobile` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `street` varchar(45) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `country` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`nationalId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `person_account` (
+  `nationalId` varchar(45) NOT NULL,
+  `accountNumber` int NOT NULL,
+  KEY `personFK_idx` (`nationalId`),
+  KEY `accountFK_idx` (`accountNumber`),
+  CONSTRAINT `accountFK` FOREIGN KEY (`accountNumber`) REFERENCES `account` (`accountNumber`),
+  CONSTRAINT `personFK` FOREIGN KEY (`nationalId`) REFERENCES `person` (`nationalId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
